@@ -54,17 +54,6 @@ class App {
       this.scene.add(planeMesh);
     }
 
-    // 조명(직사광) 생성
-    {
-      const color = 0xffffff;
-      const intensity = 1;
-      const light = new THREE.DirectionalLight(color, intensity);
-
-      light.position.set(0, 0, 60);
-
-      this.scene.add(light);
-    }
-
     // 랜덤한 개수와 위치의 Marker 생성
     this.createMarkers();
 
