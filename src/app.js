@@ -22,7 +22,7 @@ class App {
     const fov = 45;
     const aspect = 2;
     const near = 0.1;
-    const far = 100;
+    const far = 1000;
     this.camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
     this.camera.position.set(0, 60, 0);
 
