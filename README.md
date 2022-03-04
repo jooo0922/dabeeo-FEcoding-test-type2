@@ -4,7 +4,7 @@
 
 안녕하세요. 담당자님.  
 웹 그래픽 엔지니어 (WebGL) 사전과제 제출합니다.  
-과제 실행방법은 public 폴더 안에 파일들만 다운로드 받으신 후,  
+과제 실행방법은 public 폴더만 다운로드 받으신 후,  
 다음 방법들 중 하나로 실행 부탁드립니다.  
 <br/>
 
@@ -16,7 +16,7 @@
   <br/>
 
 - Chrome 웹 스토어에서 [Web Server for Chrome](https://chrome.google.com/webstore/detail/web-server-for-chrome/ofhbbkphhbklhfoeikjpcbhemlocgigb) 을 설치 및 실행하신 후,  
-  CHOOSE FOLDER 버튼을 입력하셔서 public 폴더 안에 파일들을 업로드하신 후,  
+  CHOOSE FOLDER 버튼을 입력하셔서 public 폴더를 업로드하신 후,  
   Web Server URL(s) 라고 적힌 곳 하단의 링크를 클릭하여 실행해주시면 됩니다.  
   <br/>
 
