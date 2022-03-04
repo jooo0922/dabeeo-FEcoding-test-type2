@@ -15,7 +15,7 @@
      마우스 우클릭 -> Open with Live Server 로
      실행해주시면 됩니다.
 
-- 2. Chrome 웹 스토어에서 Web Server for Chrome 을 설치하신 후,
+- 2. Chrome 웹 스토어에서 Web Server for Chrome 을 설치 및 실행하신 후,
      CHOOSE FOLDER 버튼을 입력하셔서 public 폴더 안에 파일들을 업로드하신 후,
      Web Server URL(s) 라고 적힌 곳 하단의 링크를 클릭하여 실행해주시면 됩니다.
 
@@ -24,7 +24,7 @@
 
 ---
 
-public 폴더 안에 파일들은 webpack 으로 압축한 소스코드이고,
+public 폴더 안에 파일들은 Webpack production 모드로 압축한 소스코드이고,
 원본 소스코드 확인 필요 시 src 폴더에서 확인해주시면 됩니다.
 
 감사합니다!
