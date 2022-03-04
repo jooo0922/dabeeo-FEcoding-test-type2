@@ -5,6 +5,7 @@ import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import randomPos from "./utils";
 import "./style.css";
 
+// Marker 의 랜덤한 숫자 범위는 1개 ~ 30개 사이로 임의로 정했습니다.
 const MAX_MARKER_NUM = 30;
 const MIN_MARKER_NUM = 1;
 
@@ -14,7 +15,7 @@ class App {
     this.canvas = document.getElementById("canvas");
     this.renderer = new THREE.WebGLRenderer({
       canvas: this.canvas,
-      antialias: true,
+      antialias: true, // 위신호 제거를 통해 plane(지도)의 모서리 깨짐 현상을 해결했습니다.
     });
 
     // PerspectiveCamera 생성
