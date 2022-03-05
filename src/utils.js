@@ -11,7 +11,10 @@ function randomPos() {
   let pos = [];
 
   for (let i = 0; i < 2; i++) {
-    const coord = Math.random() * (MAX_POS - MIN_POS) + MIN_POS;
+    // Type 2 문제 요구사항의 이미지 예제들에서
+    // 마커들이 바둑판식으로 배치되어 있는 것으로 미루어 보아,
+    // 마커들의 좌표값도 Math.floor() 를 이용하여 가급적 정수값으로만 리턴해야겠다고 생각했습니다.
+    const coord = Math.floor(Math.random() * (MAX_POS - MIN_POS + 1)) + MIN_POS;
     pos.push(coord);
   }
 
