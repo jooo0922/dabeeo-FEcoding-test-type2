@@ -67,26 +67,28 @@ class App {
 
   // 랜덤한 개수와 위치의 Marker 생성
   createMarkers() {
-    // 마커들이 계속 카메라를 향하도록 Sprite 객체를 활용해 구현했습니다.
-    const spriteMat = new THREE.SpriteMaterial({
-      map: this.textureLoader.load("./resources/marker.png"),
+    this.textureLoader.load("./resources/marker.png", (texture) => {
+      // 마커들이 계속 카메라를 향하도록 Sprite 객체를 활용해 구현했습니다.
+      const spriteMat = new THREE.SpriteMaterial({
+        map: texture,
+      });
+      const spriteNum =
+        Math.floor(Math.random() * (MAX_MARKER_NUM - MIN_MARKER_NUM + 1)) +
+        MIN_MARKER_NUM;
+      const posY = 0.5; // 각 마커들이 plane 에서 0.5 정도 떠있게 했습니다.
+
+      for (let i = 0; i < spriteNum; i++) {
+        const marker = new THREE.Sprite(spriteMat);
+        const markerPos = randomPos();
+
+        // sprite 비율이 찌그러진 상태로 렌더되어서
+        // 원본 이미지 비율인 118 : 144, 약 1 : 1.22 정도로 맞췄습니다.
+        marker.scale.set(1, 1.22, 0);
+        marker.position.set(markerPos[0], posY, markerPos[1]);
+
+        this.scene.add(marker);
+      }
     });
-    const spriteNum =
-      Math.floor(Math.random() * (MAX_MARKER_NUM - MIN_MARKER_NUM + 1)) +
-      MIN_MARKER_NUM;
-    const posY = 0.5; // 각 마커들이 plane 에서 0.5 정도 떠있게 했습니다.
-
-    for (let i = 0; i < spriteNum; i++) {
-      const marker = new THREE.Sprite(spriteMat);
-      const markerPos = randomPos();
-
-      // sprite 비율이 찌그러진 상태로 렌더되어서
-      // 원본 이미지 비율인 118 : 144, 약 1 : 1.22 정도로 맞췄습니다.
-      marker.scale.set(1, 1.22, 0);
-      marker.position.set(markerPos[0], posY, markerPos[1]);
-
-      this.scene.add(marker);
-    }
   }
 
   // 브라우저 라시이징 시 해상도 및 카메라 비율 조정
