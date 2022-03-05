@@ -45,17 +45,18 @@ class App {
       // 다운로드 받은 map.png 텍스처 이미지 원본 사이즈가 2907 * 3460 이었기 때문에
       // Three.js 에 의해 자동으로 2의 거듭제곱 수 2048 * 2048 로 변환되었습니다.
       const planeMat = new THREE.MeshBasicMaterial({
-        map: this.textureLoader.load("./resources/map.png"),
+        map: this.textureLoader.load("./resources/map.png", () => {
+          const planeMesh = new THREE.Mesh(planeGeo, planeMat);
+          planeMesh.rotation.x = Math.PI * -0.5; // plane 을 -90도 회전했습니다.
+
+          this.scene.add(planeMesh);
+
+          // 지도가 로드 및 생성되고 난 뒤에
+          // 마커가 생성될 수 있도록 onload 함수 안에서 호출했습니다.
+          this.createMarkers();
+        }),
       });
-
-      const planeMesh = new THREE.Mesh(planeGeo, planeMat);
-      planeMesh.rotation.x = Math.PI * -0.5; // plane 을 -90도 회전했습니다.
-
-      this.scene.add(planeMesh);
     }
-
-    // 랜덤한 개수와 위치의 Marker 생성
-    this.createMarkers();
 
     window.addEventListener("resize", this.resize.bind(this), false);
     this.resize();
@@ -78,6 +79,9 @@ class App {
       const marker = new THREE.Sprite(spriteMat);
       const markerPos = randomPos();
 
+      // sprite 비율이 찌그러진 상태로 렌더되어서
+      // 원본 이미지 비율인 118 : 144, 약 1 : 1.22 정도로 맞췄습니다.
+      marker.scale.set(1, 1.22, 0);
       marker.position.set(markerPos[0], posY, markerPos[1]);
 
       this.scene.add(marker);
