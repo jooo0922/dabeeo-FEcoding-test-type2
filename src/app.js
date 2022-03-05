@@ -29,6 +29,11 @@ class App {
     // OrbitControls 생성 (마우스 드래그&스크롤을 통한 이동, 회전, 확대/축소 구현에 사용했습니다.)
     this.controls = new OrbitControls(this.camera, this.canvas);
     this.controls.target.set(0, 0, 0);
+    this.controls.mouseButtons = {
+      LEFT: THREE.MOUSE.PAN, // 마우스 좌클릭 드래그: 이동
+      MIDDLE: THREE.MOUSE.DOLLY, // 마우스 스크롤: 확대/축소
+      RIGHT: THREE.MOUSE.ROTATE, // 마우스 우클릭 드래그: 회전
+    };
     this.controls.update();
 
     // Scene 생성
